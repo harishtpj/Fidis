@@ -1,6 +1,7 @@
 # Fidis Library
 require "./lib/fidis/list.rb"
 require "./lib/fidis/hash.rb"
+require "./lib/fidis/sset.rb"
 
 def error(msg, ecode)
   puts msg
