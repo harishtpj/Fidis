@@ -2,6 +2,7 @@
 require "./lib/fidis/list.rb"
 require "./lib/fidis/hash.rb"
 require "./lib/fidis/sset.rb"
+require "yaml"
 
 def error(msg, ecode)
   puts msg
@@ -88,4 +89,8 @@ def tkeys(type)
   else
     error "TypeError: Only [Integer, String, Float, Array, Hash] Types are Supported", 702
   end
+end
+
+def save(filename)
+  File.open(filename + '.yml', 'w') { |f| f.write $DB.to_yaml}
 end
