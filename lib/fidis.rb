@@ -1,5 +1,6 @@
 # Fidis Library
 require "./lib/fidis/list.rb"
+require "./lib/fidis/hash.rb"
 
 def error(msg, ecode)
   puts msg
@@ -69,5 +70,21 @@ def clscr
     system("cls")
   else
     system("clear")
+  end
+end
+
+def tkeys(type)
+  if type.instance_of?(String)
+    type = Object.const_get type
+    count = 0
+    $DB.each do |key, val|
+      if val.instance_of?(type)
+        puts key
+        count += 1
+      end
+    end
+    count
+  else
+    error "TypeError: Only [Integer, String, Float, Array, Hash] Types are Supported", 702
   end
 end
