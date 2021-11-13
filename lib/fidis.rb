@@ -2,6 +2,7 @@
 require "./lib/fidis/list.rb"
 require "./lib/fidis/hash.rb"
 require "./lib/fidis/sset.rb"
+require "./lib/fidis/server.rb"
 require "yaml"
 
 def error(msg, ecode)

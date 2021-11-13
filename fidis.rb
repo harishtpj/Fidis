@@ -2,7 +2,6 @@
 require "./lib/fidis.rb"
 require "pry"
 require "optparse"
-require "yaml"
 
 $DB = {}
 $ENV = {
@@ -25,7 +24,6 @@ OptionParser.new do |opts|
     )
     puts "Welcome to Fidis v#{$ENV[:version]}"
     puts "Created By #{$ENV[:author]}"
-    puts "Enter <help> for More info"
     puts
     Pry.start( :prompt => :fidis )
   end
@@ -33,4 +31,5 @@ OptionParser.new do |opts|
   opts.on("-lFNAME", "--load=FNAME", "Loads .yml data file") do |v|
     $DB = YAML::load_file(v)
   end
+
 end.parse!
